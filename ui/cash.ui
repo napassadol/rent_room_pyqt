@@ -33,7 +33,7 @@
     </property>
     <property name="font">
      <font>
-      <pointsize>60</pointsize>
+      <pointsize>30</pointsize>
      </font>
     </property>
     <property name="text">
@@ -44,7 +44,7 @@
     <property name="geometry">
      <rect>
       <x>960</x>
-      <y>30</y>
+      <y>50</y>
       <width>181</width>
       <height>61</height>
      </rect>
@@ -61,9 +61,9 @@
    <widget class="QLabel" name="label_2">
     <property name="geometry">
      <rect>
-      <x>800</x>
+      <x>780</x>
       <y>270</y>
-      <width>171</width>
+      <width>231</width>
       <height>61</height>
      </rect>
     </property>
@@ -81,7 +81,7 @@
      <rect>
       <x>690</x>
       <y>330</y>
-      <width>131</width>
+      <width>151</width>
       <height>61</height>
      </rect>
     </property>
