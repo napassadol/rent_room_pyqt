@@ -20,7 +20,7 @@ class Ui__payment(object):
         self.label_4 = QtWidgets.QLabel(self.widget)
         self.label_4.setGeometry(QtCore.QRect(90, 30, 921, 90))
         font = QtGui.QFont()
-        font.setPointSize(40)
+        font.setPointSize(30)
         font.setBold(True)
         font.setWeight(75)
         self.label_4.setFont(font)
