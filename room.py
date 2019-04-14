@@ -13,8 +13,9 @@ def initialPins():
     GPIO.setmode(GPIO.BOARD)
     with open('./room.json', 'r') as f:
         data = json.load(f)
-    for item in data:
-        print(item['pin'])
+    print(data)
+    # for item in data:
+    #     print(item['pin'])
         # GPIO.setup(int(item['pin']), GPIO.OUT)
         # GPIO.output(int(item['pin']), 1)
 
