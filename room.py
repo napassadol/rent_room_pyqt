@@ -14,9 +14,9 @@ def initialPins():
     with open('./room.json', 'r') as f:
         data = json.load(f)
     for item in data:
-        print()
-        GPIO.setup(int(item['pin']), GPIO.OUT)
-        GPIO.output(int(item['pin']), 1)
+        print(item['pin'])
+        # GPIO.setup(int(item['pin']), GPIO.OUT)
+        # GPIO.output(int(item['pin']), 1)
 
 def connectDB():
     mydb = mysql.connector.connect(
