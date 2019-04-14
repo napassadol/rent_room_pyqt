@@ -59,6 +59,7 @@ class CheckStatus(threading.Thread):
                     current_time = time.time() - start_time
                     self.end.label_9.setText(str(int(hold_end_page - current_time)))
                     time.sleep(1)
+                GPIO.output(self.pin, 1)
                 self.end.widget.hide()
                 self.home.widget.show()
             time.sleep(2)
