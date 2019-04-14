@@ -1,22 +1,27 @@
 {
     "A": {
         "price": 500,
-        "door": 1
+        "door": 1,
+        "pin": 29
     },
     "B": {
         "price": 600,
-        "door": 2
+        "door": 2,
+        "pin": 31
     },
     "C": {
         "price": 700,
-        "door": 3
+        "door": 3,
+        "pin": 33
     },
     "D": {
         "price": 800,
-        "door": 4
+        "door": 4,
+        "pin": 35
     },
     "E": {
         "price": 900,
-        "door": 5
+        "door": 5,
+        "pin": 37
     }
 }

@@ -4,9 +4,18 @@ import uuid
 import qrcode
 import threading
 import time
+import RPi.GPIO as GPIO
 
 omise_server = 'http://178.128.80.248/'
-hold_end_page = 10
+hold_end_page = 30
+
+def initialPins():
+    GPIO.setmode(GPIO.BOARD)
+    with open('./room.json', 'r') as f:
+        data = json.load(f)
+    for item in data:
+        GPIO.setup(item['pin'], GPIO.OUT)
+        GPIO.output(item['pin'], 1)
 
 def connectDB():
     mydb = mysql.connector.connect(
@@ -18,7 +27,7 @@ def connectDB():
     return mydb
 
 class CheckStatus(threading.Thread):
-    def __init__(self, token, ui_mobile, ui_end, home, room_name, door):
+    def __init__(self, token, ui_mobile, ui_end, home, room_name, door, pin):
         threading.Thread.__init__(self)
         self.token = token
         self.enable = True
@@ -27,6 +36,7 @@ class CheckStatus(threading.Thread):
         self.home = home
         self.room_name = room_name
         self.door = door
+        self.pin = pin
     
     def run(self):
         while self.enable:
@@ -39,6 +49,7 @@ class CheckStatus(threading.Thread):
             open_status = myresult[0][1]
             if pay_status == 1 and open_status == 0:
                 self.enable = False
+                GPIO.output(self.pin, 0)
                 self.mobile_banking.widget.hide()
                 self.end.widget.show()
                 self.end.label_4.setText(self.room_name)
@@ -60,6 +71,7 @@ class RoomManage():
             self.room_name = room
             self.door = self.room[room]['door']
             self.price = self.room[room]['price']
+            self.pin = self.room[room]['pin']
         except:
             self.price = 0
     
@@ -80,7 +92,7 @@ class RoomManage():
         mycursor.execute(querystr, val)
         mydb.commit()
         
-        self.thread = CheckStatus(self.token, self.mobile_banking, self.end, self.home, self.room_name, self.door)
+        self.thread = CheckStatus(self.token, self.mobile_banking, self.end, self.home, self.room_name, self.door, self.pin)
         self.thread.start()
     
     def cancelPayment(self):
