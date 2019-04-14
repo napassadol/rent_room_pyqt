@@ -10,7 +10,7 @@ from template.cash import Ui_cash_2 as Ui_cash
 from template.mobile_banking import Ui_Form as Ui_mobile_banking
 from template.end import Ui_Form as Ui_end
 
-from room import RoomManage
+from room import RoomManage, initialPins
 
 class MyApp(QMainWindow):
     room_manage = RoomManage()
@@ -41,6 +41,7 @@ class MyApp(QMainWindow):
 
         self.initButton()
         self.initLabel()
+        initialPins()
 
     def homeButton(self):
         self.home.widget.mouseDoubleClickEvent = lambda event:self.openHome()
