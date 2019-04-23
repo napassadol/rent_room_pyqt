@@ -4,27 +4,27 @@
         "door": 2,
         "pin": 31,
         "sequence": 0,
-        "buttonText": "เลือกห้อง A"
+        "buttonText": "เsssลือกห้อง A"
     },
     "B": {
         "price": 600,
         "door": 3,
         "pin": 33,
         "sequence": 1,
-        "buttonText": "เลือกห้อง B"
+        "buttonText": "เลือกห้ddอง B"
     },
     "C": {
         "price": 700,
         "door": 4,
         "pin": 35,
         "sequence": 2,
-        "buttonText": "เลือกห้อง C"
+        "buttonText": "เลือกห้wอง C"
     },
     "D": {
         "price": 800,
         "door": 5,
         "pin": 37,
         "sequence": 3,
-        "buttonText": "เลือกห้อง D"
+        "buttonText": "เลือกwห้อง D"
     }
 }
