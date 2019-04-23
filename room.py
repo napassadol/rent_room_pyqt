@@ -92,7 +92,12 @@ class CheckCash(threading.Thread):
         while self.enable:
             print(str(count))
             if (time.time() - pluse_time > 1) and (count != 0):
-                print('---------------------------')
+                if count < 40 and count > 30:
+                    print(count)
+                    print('100')
+                elif count > 5:
+                    print(count)
+                    print('20')
                 count = 0
             time.sleep(0.1)
  
