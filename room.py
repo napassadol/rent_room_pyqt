@@ -77,7 +77,6 @@ class CheckStatus(threading.Thread):
             time.sleep(2)
 
 class CheckCash(threading.Thread):
-    global count
     def __init__(self, ui_cash, ui_end, home, room_name, door, pin):
         threading.Thread.__init__(self)
         self.enable = True
@@ -87,7 +86,9 @@ class CheckCash(threading.Thread):
         self.room_name = room_name
         self.door = door
         self.pin = pin
+
     def run(self):
+        global count
         while self.enable:
             if (time.time() - pluse_time > 1) and (count != 0):
                 print('---------------------------')
