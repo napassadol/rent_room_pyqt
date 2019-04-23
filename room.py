@@ -36,7 +36,7 @@ def calculateCash(channel):
     global count, pluse_time
     pluse_time = time.time()
     count = count + 1
-    print('Pulse: ' + str(count))
+    # print('Pulse: ' + str(count))
 
 class CheckStatus(threading.Thread):
     def __init__(self, token, ui_mobile, ui_end, home, room_name, door, pin):
@@ -90,6 +90,7 @@ class CheckCash(threading.Thread):
     def run(self):
         global count
         while self.enable:
+            print(str(count))
             if (time.time() - pluse_time > 1) and (count != 0):
                 print('---------------------------')
                 count = 0
