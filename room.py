@@ -99,16 +99,16 @@ class CheckCash(threading.Thread):
                 if count >= 380 and count <= 400:
                     cash_bank = 1000
                     print("pulse: {}, cash: {}".format(str(count), str(cash_bank)))
-                elif count >= 180 and <= 220:
+                elif count >= 180 and count <= 220:
                     cash_bank = 500
                     print("pulse: {}, cash: {}".format(str(count), str(cash_bank)))
                 elif count <= 40 and count > 35:
                     cash_bank = 100
                     print("pulse: {}, cash: {}".format(str(count), str(cash_bank)))
-                elif count >= 15 and < 30:
+                elif count >= 15 and count < 30:
                     cash_bank = 50
                     print("pulse: {}, cash: {}".format(str(count), str(cash_bank)))
-                elif count >= 5 and < 10:
+                elif count >= 5 and count < 10:
                     cash_bank = 20
                     print("pulse: {}, cash: {}".format(str(count), str(cash_bank)))
                 count = 0
