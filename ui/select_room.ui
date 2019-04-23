@@ -135,24 +135,6 @@
      <string>เลือกห้อง D</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton_7">
-    <property name="geometry">
-     <rect>
-      <x>710</x>
-      <y>460</y>
-      <width>431</width>
-      <height>61</height>
-     </rect>
-    </property>
-    <property name="font">
-     <font>
-      <pointsize>30</pointsize>
-     </font>
-    </property>
-    <property name="text">
-     <string>เลือกห้อง E</string>
-    </property>
-   </widget>
    <widget class="QLabel" name="label_4">
     <property name="geometry">
      <rect>

@@ -49,12 +49,25 @@ class MyApp(QMainWindow):
     def selectRoomButton(self):
         self.select_room.pushButton_2.clicked.connect(self.home.widget.show)
         self.select_room.pushButton_2.clicked.connect(self.select_room.widget.hide)
-
-        self.select_room.pushButton_3.clicked.connect(lambda: self.selectRoom('A'))
-        self.select_room.pushButton_4.clicked.connect(lambda: self.selectRoom('B'))
-        self.select_room.pushButton_5.clicked.connect(lambda: self.selectRoom('C'))
-        self.select_room.pushButton_6.clicked.connect(lambda: self.selectRoom('D'))
-        self.select_room.pushButton_7.clicked.connect(lambda: self.selectRoom('E'))
+        with open('./room.json', 'r') as f:
+            data = json.load(f)
+        for item in data:
+            if data[item]['sequence'] == 0:
+                self.select_room.pushButton_3.clicked.connect(lambda: self.selectRoom(item))
+                self.select_room.pushButton_3.setText('เลือกห้อง ' + str(item))
+            if data[item]['sequence'] == 1:
+                self.select_room.pushButton_3.clicked.connect(lambda: self.selectRoom(item))
+                self.select_room.pushButton_3.setText('เลือกห้อง ' + str(item))
+            if data[item]['sequence'] == 2:
+                self.select_room.pushButton_3.clicked.connect(lambda: self.selectRoom(item))
+                self.select_room.pushButton_3.setText('เลือกห้อง ' + str(item))
+            if data[item]['sequence'] == 3:
+                self.select_room.pushButton_3.clicked.connect(lambda: self.selectRoom(item))
+                self.select_room.pushButton_3.setText('เลือกห้อง ' + str(item))
+        # self.select_room.pushButton_3.clicked.connect(lambda: self.selectRoom('A'))
+        # self.select_room.pushButton_4.clicked.connect(lambda: self.selectRoom('B'))
+        # self.select_room.pushButton_5.clicked.connect(lambda: self.selectRoom('C'))
+        # self.select_room.pushButton_6.clicked.connect(lambda: self.selectRoom('D'))
     
     def paymentButton(self):
         self.payment.pushButton_8.clicked.connect(self.select_room.widget.show)

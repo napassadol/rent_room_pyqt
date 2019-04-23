@@ -55,12 +55,6 @@ class Ui_Form(object):
         font.setPointSize(30)
         self.pushButton_6.setFont(font)
         self.pushButton_6.setObjectName("pushButton_6")
-        self.pushButton_7 = QtWidgets.QPushButton(self.widget)
-        self.pushButton_7.setGeometry(QtCore.QRect(710, 460, 431, 61))
-        font = QtGui.QFont()
-        font.setPointSize(30)
-        self.pushButton_7.setFont(font)
-        self.pushButton_7.setObjectName("pushButton_7")
         self.label_4 = QtWidgets.QLabel(self.widget)
         self.label_4.setGeometry(QtCore.QRect(90, 140, 550, 600))
         self.label_4.setText("")
@@ -79,6 +73,5 @@ class Ui_Form(object):
         self.pushButton_4.setText(_translate("Form", "เลือกห้อง B"))
         self.pushButton_5.setText(_translate("Form", "เลือกห้อง C"))
         self.pushButton_6.setText(_translate("Form", "เลือกห้อง D"))
-        self.pushButton_7.setText(_translate("Form", "เลือกห้อง E"))
 
 
