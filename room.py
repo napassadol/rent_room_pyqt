@@ -93,21 +93,24 @@ class CheckCash(threading.Thread):
     def run(self):
         global count
         while self.enable:
-            if (time.time() - pluse_time > 1) and (count != 0):
+            if (time.time() - pluse_time > 0.3) and (count != 0):
                 cash_bank = 0
                 print('Count: ' + str(count))
                 if count >= 380 and count <= 400:
-                    print(count)
-                    print('1000')
                     cash_bank = 1000
-                elif count <= 40 and count > 30:
-                    print(count)
-                    print('100')
+                    print("pulse: {}, cash: {}".format(str(count), str(cash_bank)))
+                elif count >= 180 and <= 220:
+                    cash_bank = 500
+                    print("pulse: {}, cash: {}".format(str(count), str(cash_bank)))
+                elif count <= 40 and count > 35:
                     cash_bank = 100
-                elif count >= 5:
-                    print(count)
-                    print('20')
+                    print("pulse: {}, cash: {}".format(str(count), str(cash_bank)))
+                elif count >= 15 and < 30:
+                    cash_bank = 50
+                    print("pulse: {}, cash: {}".format(str(count), str(cash_bank)))
+                elif count >= 5 and < 10:
                     cash_bank = 20
+                    print("pulse: {}, cash: {}".format(str(count), str(cash_bank)))
                 count = 0
                 self.price = self.price - cash_bank
                 self.ui_cash.label_4.setText(str(self.price))
