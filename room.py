@@ -7,7 +7,7 @@ import time
 import RPi.GPIO as GPIO
 
 omise_server = 'http://178.128.80.248/'
-hold_end_page = 30
+hold_end_page = 10
 
 cash_box = 40
 count = 0
@@ -77,7 +77,7 @@ class CheckStatus(threading.Thread):
             time.sleep(2)
 
 class CheckCash(threading.Thread):
-    def __init__(self, ui_cash, ui_end, home, room_name, door, pin):
+    def __init__(self, price, ui_cash, ui_end, home, room_name, door, pin):
         threading.Thread.__init__(self)
         self.enable = True
         self.ui_cash = ui_cash
@@ -86,18 +86,23 @@ class CheckCash(threading.Thread):
         self.room_name = room_name
         self.door = door
         self.pin = pin
+        self.price = price
 
     def run(self):
         global count
         while self.enable:
-            print(str(count))
             if (time.time() - pluse_time > 1) and (count != 0):
+                cash_bank = 0
                 if count < 40 and count > 30:
                     print(count)
                     print('100')
-                elif count > 5:
+                    cash_bank = 100
+                elif count >= 5:
                     print(count)
                     print('20')
+                    cash_bank = 50
+                self.price = self.price - cash_bank
+                self.ui_cash.label_4.setText(str(self.price))
                 count = 0
             time.sleep(0.1)
  
@@ -120,7 +125,7 @@ class RoomManage():
         self.ui_cash = ui_cash
         self.end = ui_end
         self.home = ui_home
-        self.thread = CheckCash(self.ui_cash, self.end, self.home, self.room_name, self.door, self.pin)
+        self.thread = CheckCash(self.price, self.ui_cash, self.end, self.home, self.room_name, self.door, self.pin)
         self.thread.start()
     
     def stopCash(self):
