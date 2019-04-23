@@ -134,6 +134,7 @@ class MyApp(QMainWindow):
         self.room_manage = RoomManage(room)
         self.select_room.widget.hide()
         self.payment.widget.show()
+        print('Room: ' + str(room))
         self.cashLabel()
     
     def openCash(self):
