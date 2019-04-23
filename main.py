@@ -60,8 +60,7 @@ class MyApp(QMainWindow):
         self.payment.pushButton_8.clicked.connect(self.select_room.widget.show)
         self.payment.pushButton_8.clicked.connect(self.payment.widget.hide)
 
-        self.payment.pushButton_9.clicked.connect(self.cash.widget.show)
-        self.payment.pushButton_9.clicked.connect(self.payment.widget.hide)
+        self.payment.pushButton_9.clicked.connect(lambda: self.openCash())
 
         self.payment.pushButton_10.clicked.connect(lambda: self.openMobileBanking())
     
@@ -125,6 +124,11 @@ class MyApp(QMainWindow):
         self.select_room.widget.hide()
         self.payment.widget.show()
         self.cashLabel()
+    
+    def openCash(self):
+        self.payment.widget.hide()
+        self.cash.widget.show()
+        self.room_manage.startCash(self.cash, self.end, self.home)
     
     def openMobileBanking(self):
         self.payment.widget.hide()

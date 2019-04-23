@@ -86,7 +86,6 @@ class CheckCash(threading.Thread):
         GPIO.add_event_detect(cash_box, GPIO.RISING, callback=calculateCash, bouncetime=50)
     def run(self):
         while self.enable:
-            
             time.sleep(2)
  
 class RoomManage():
@@ -103,6 +102,16 @@ class RoomManage():
     
     def createQRCode(self, token):
         qrcode.make(omise_server + "?token=" + token).save('qr.png')
+    
+    def startCash(self, ui_cash, ui_end, ui_home):
+        self.ui_cash = ui_cash
+        self.end = ui_end
+        self.home = ui_home
+        self.thread = CheckCash(self.ui_cash, self.end, self.home, self.room_name, self.door, self.pin)
+        self.thread.start()
+    
+    def stopCash(self):
+        self.thread.enable = False
     
     def create_payment(self, ui_mobile, ui_end, ui_home):
         self.mobile_banking = ui_mobile
