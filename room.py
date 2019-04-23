@@ -21,7 +21,7 @@ def initialPins():
         data = json.load(f)
     for item in data:
         GPIO.setup(data[item]['pin'], GPIO.OUT)
-        GPIO.output(data[item]['pin'], 1)
+        GPIO.output(data[item]['pin'], 0)
 
 def connectDB():
     mydb = mysql.connector.connect(
@@ -61,7 +61,7 @@ class CheckStatus(threading.Thread):
             open_status = myresult[0][1]
             if pay_status == 1 and open_status == 0:
                 self.enable = False
-                GPIO.output(self.pin, 0)
+                GPIO.output(self.pin, 1)
                 self.mobile_banking.widget.hide()
                 self.end.widget.show()
                 self.end.label_4.setText(self.room_name)
@@ -71,7 +71,7 @@ class CheckStatus(threading.Thread):
                     current_time = time.time() - start_time
                     self.end.label_9.setText(str(int(hold_end_page - current_time)))
                     time.sleep(1)
-                GPIO.output(self.pin, 1)
+                GPIO.output(self.pin, 0)
                 self.end.widget.hide()
                 self.home.widget.show()
             time.sleep(2)
@@ -118,7 +118,7 @@ class CheckCash(threading.Thread):
                 if self.price <= 0 :
                     print('finish')
                     self.enable = False
-                    GPIO.output(self.pin, 0)
+                    GPIO.output(self.pin, 1)
                     self.ui_cash.widget.hide()
                     self.end.widget.show()
                     self.end.label_4.setText(self.room_name)
@@ -128,7 +128,7 @@ class CheckCash(threading.Thread):
                         current_time = time.time() - start_time
                         self.end.label_9.setText(str(int(hold_end_page - current_time)))
                         time.sleep(1)
-                    GPIO.output(self.pin, 1)
+                    GPIO.output(self.pin, 0)
                     self.end.widget.hide()
                     self.home.widget.show()
             time.sleep(0.1)
