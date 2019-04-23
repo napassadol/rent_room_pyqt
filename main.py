@@ -65,8 +65,9 @@ class MyApp(QMainWindow):
         self.payment.pushButton_10.clicked.connect(lambda: self.openMobileBanking())
     
     def cashButton(self):
-        self.cash.pushButton.clicked.connect(self.cash.widget.hide)
-        self.cash.pushButton.clicked.connect(self.payment.widget.show)
+        # self.cash.pushButton.clicked.connect(self.cash.widget.hide)
+        # self.cash.pushButton.clicked.connect(self.payment.widget.show)
+        self.cash.pushButton.clicked.connect(lambda: self.cloasCash())
     
     def mobilrBankingButton(self):
         self.mobile_banking.pushButton.clicked.connect(lambda: self.closeMobileBanking())
