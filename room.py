@@ -11,6 +11,7 @@ hold_end_page = 30
 
 cash_box = 40
 count = 0
+pluse_time = 0
 
 def initialPins():
     GPIO.setmode(GPIO.BOARD)
@@ -32,9 +33,10 @@ def connectDB():
     return mydb
 
 def calculateCash(channel):
-    global count
+    global count, pluse_time
+    pluse_time = time.time()
     count += 1
-    print('Pulse: ' + count)
+    print('Pulse: ' + str(count))
 
 class CheckStatus(threading.Thread):
     def __init__(self, token, ui_mobile, ui_end, home, room_name, door, pin):
@@ -75,6 +77,7 @@ class CheckStatus(threading.Thread):
             time.sleep(2)
 
 class CheckCash(threading.Thread):
+    global count
     def __init__(self, ui_cash, ui_end, home, room_name, door, pin):
         threading.Thread.__init__(self)
         self.enable = True
@@ -86,7 +89,9 @@ class CheckCash(threading.Thread):
         self.pin = pin
     def run(self):
         while self.enable:
-            time.sleep(2)
+            if time.time() - pluse_time < 1:
+                count = 0
+            time.sleep(0.1)
  
 class RoomManage():
     def __init__(self, room=None):
