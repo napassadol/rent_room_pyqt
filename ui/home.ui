@@ -77,7 +77,7 @@
     <property name="geometry">
      <rect>
       <x>130</x>
-      <y>430</y>
+      <y>470</y>
       <width>1000</width>
       <height>280</height>
      </rect>
@@ -95,6 +95,24 @@
     </property>
     <property name="scaledContents">
      <bool>true</bool>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButton">
+    <property name="geometry">
+     <rect>
+      <x>450</x>
+      <y>340</y>
+      <width>351</width>
+      <height>71</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>31</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>เริ่มใช้งาน</string>
     </property>
    </widget>
   </widget>

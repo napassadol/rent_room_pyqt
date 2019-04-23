@@ -34,7 +34,7 @@ class Ui_Form(object):
         self.label_2.setAlignment(QtCore.Qt.AlignCenter)
         self.label_2.setObjectName("label_2")
         self.label_3 = QtWidgets.QLabel(self.widget)
-        self.label_3.setGeometry(QtCore.QRect(130, 430, 1000, 280))
+        self.label_3.setGeometry(QtCore.QRect(130, 470, 1000, 280))
         font = QtGui.QFont()
         font.setPointSize(50)
         self.label_3.setFont(font)
@@ -42,6 +42,12 @@ class Ui_Form(object):
         self.label_3.setPixmap(QtGui.QPixmap("../../../Downloads/home.png"))
         self.label_3.setScaledContents(True)
         self.label_3.setObjectName("label_3")
+        self.pushButton = QtWidgets.QPushButton(self.widget)
+        self.pushButton.setGeometry(QtCore.QRect(450, 340, 351, 71))
+        font = QtGui.QFont()
+        font.setPointSize(31)
+        self.pushButton.setFont(font)
+        self.pushButton.setObjectName("pushButton")
 
         self.retranslateUi(Form)
         QtCore.QMetaObject.connectSlotsByName(Form)
@@ -51,5 +57,6 @@ class Ui_Form(object):
         Form.setWindowTitle(_translate("Form", "Form"))
         self.label.setText(_translate("Form", "ยินดีต้อนรับสู่"))
         self.label_2.setText(_translate("Form", "เครื่องจองห้องพักอัตโนมัติ"))
+        self.pushButton.setText(_translate("Form", "เริ่มใช้งาน"))
 
 

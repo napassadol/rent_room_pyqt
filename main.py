@@ -45,7 +45,8 @@ class MyApp(QMainWindow):
         initialPins()
 
     def homeButton(self):
-        self.home.widget.mouseDoubleClickEvent = lambda event:self.openHome()
+        # self.home.widget.mouseDoubleClickEvent = lambda event:self.openHome()
+        self.home.pushButton.clicked.connect(lambda :self.openHome())
     
     def selectRoomButton(self):
         self.select_room.pushButton_2.clicked.connect(self.home.widget.show)
