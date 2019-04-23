@@ -9,8 +9,12 @@ import RPi.GPIO as GPIO
 omise_server = 'http://178.128.80.248/'
 hold_end_page = 30
 
+cash_box = 40
+count = 0
+
 def initialPins():
     GPIO.setmode(GPIO.BOARD)
+    GPIO.setup(cash_box, GPIO.IN, pull_up_down=GPIO.PUD_UP)
     with open('./room.json', 'r') as f:
         data = json.load(f)
     for item in data:
@@ -25,6 +29,10 @@ def connectDB():
         database="payment"
     )
     return mydb
+
+def calculateCash(channel):
+    count += 1
+    print('Pulse' + count)
 
 class CheckStatus(threading.Thread):
     def __init__(self, token, ui_mobile, ui_end, home, room_name, door, pin):
@@ -62,6 +70,23 @@ class CheckStatus(threading.Thread):
                 GPIO.output(self.pin, 0)
                 self.end.widget.hide()
                 self.home.widget.show()
+            time.sleep(2)
+
+class CheckCash(threading.Thread):
+    def __init__(self, ui_cash, ui_end, home, room_name, door, pin):
+        threading.Thread.__init__(self)
+        self.token = token
+        self.enable = True
+        self.ui_cash = ui_cash
+        self.end = ui_end
+        self.home = home
+        self.room_name = room_name
+        self.door = door
+        self.pin = pin
+        GPIO.add_event_detect(cash_box, GPIO.RISING, callback=calculateCash, bouncetime=50)
+    def run(self):
+        while self.enable:
+            
             time.sleep(2)
  
 class RoomManage():
