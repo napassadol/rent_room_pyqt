@@ -35,7 +35,7 @@ def connectDB():
 def calculateCash(channel):
     global count, pluse_time
     pluse_time = time.time()
-    count += 1
+    count = count + 1
     print('Pulse: ' + str(count))
 
 class CheckStatus(threading.Thread):
@@ -89,8 +89,7 @@ class CheckCash(threading.Thread):
         self.pin = pin
     def run(self):
         while self.enable:
-            print('++++++++++++++++++++++++++++++')
-            if time.time() - pluse_time > 1:
+            if (time.time() - pluse_time > 1) and (count != 0):
                 print('---------------------------')
                 count = 0
             time.sleep(0.1)
