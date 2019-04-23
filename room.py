@@ -75,7 +75,6 @@ class CheckStatus(threading.Thread):
 class CheckCash(threading.Thread):
     def __init__(self, ui_cash, ui_end, home, room_name, door, pin):
         threading.Thread.__init__(self)
-        self.token = token
         self.enable = True
         self.ui_cash = ui_cash
         self.end = ui_end
