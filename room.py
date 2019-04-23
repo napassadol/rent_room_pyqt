@@ -101,24 +101,25 @@ class CheckCash(threading.Thread):
                     print(count)
                     print('20')
                     cash_bank = 20
+                count = 0
                 self.price = self.price - cash_bank
                 self.ui_cash.label_4.setText(str(self.price))
                 if self.price <= 0 :
                     print('finish')
-                    # self.enable = False
-                    # GPIO.output(self.pin, 1)
-                    # self.ui_cash.widget.hide()
-                    # self.end.widget.show()
-                    # self.end.label_4.setText(self.room_name)
-                    # self.end.label_6.setText(str(self.door))
-                    # start_time = time.time()
-                    # while time.time() - start_time < hold_end_page:
-                    #     current_time = time.time() - start_time
-                    #     self.end.label_9.setText(str(int(hold_end_page - current_time)))
-                    #     time.sleep(1)
-                    # GPIO.output(self.pin, 0)
-                    # self.end.widget.hide()
-                    # self.home.widget.show()
+                    self.enable = False
+                    GPIO.output(self.pin, 1)
+                    self.ui_cash.widget.hide()
+                    self.end.widget.show()
+                    self.end.label_4.setText(self.room_name)
+                    self.end.label_6.setText(str(self.door))
+                    start_time = time.time()
+                    while time.time() - start_time < hold_end_page:
+                        current_time = time.time() - start_time
+                        self.end.label_9.setText(str(int(hold_end_page - current_time)))
+                        time.sleep(1)
+                    GPIO.output(self.pin, 0)
+                    self.end.widget.hide()
+                    self.home.widget.show()
             time.sleep(0.1)
  
 class RoomManage():
