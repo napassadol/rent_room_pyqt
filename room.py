@@ -31,8 +31,9 @@ def connectDB():
     return mydb
 
 def calculateCash(channel):
+    global count
     count += 1
-    print('Pulse' + count)
+    print('Pulse: ' + count)
 
 class CheckStatus(threading.Thread):
     def __init__(self, token, ui_mobile, ui_end, home, room_name, door, pin):
