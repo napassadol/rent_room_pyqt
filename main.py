@@ -51,21 +51,6 @@ class MyApp(QMainWindow):
     def selectRoomButton(self):
         self.select_room.pushButton_2.clicked.connect(self.home.widget.show)
         self.select_room.pushButton_2.clicked.connect(self.select_room.widget.hide)
-        # with open('./room.json', 'r') as f:
-        #     data = json.load(f)
-        # for item in data:
-        #     if data[item]['sequence'] == 0:
-        #         self.select_room.pushButton_3.clicked.connect(lambda: self.selectRoom(item))
-        #         self.select_room.pushButton_3.setText(data[item]['buttonText'])
-        #     if data[item]['sequence'] == 1:
-        #         self.select_room.pushButton_4.clicked.connect(lambda: self.selectRoom(item))
-        #         self.select_room.pushButton_4.setText(data[item]['buttonText'])
-        #     if data[item]['sequence'] == 2:
-        #         self.select_room.pushButton_5.clicked.connect(lambda: self.selectRoom(item))
-        #         self.select_room.pushButton_5.setText(data[item]['buttonText'])
-        #     if data[item]['sequence'] == 3:
-        #         self.select_room.pushButton_6.clicked.connect(lambda: self.selectRoom(item))
-        #         self.select_room.pushButton_6.setText(data[item]['buttonText'])
         self.select_room.pushButton_3.clicked.connect(lambda: self.selectRoom('A'))
         self.select_room.pushButton_4.clicked.connect(lambda: self.selectRoom('B'))
         self.select_room.pushButton_5.clicked.connect(lambda: self.selectRoom('C'))
