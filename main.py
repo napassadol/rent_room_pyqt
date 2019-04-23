@@ -130,6 +130,12 @@ class MyApp(QMainWindow):
         self.cash.widget.show()
         self.room_manage.startCash(self.cash, self.end, self.home)
     
+    def cloasCash(self):
+        self.cash.widget.hide()
+        self.payment.widget.show()
+        self.room_manage.stopCash()
+
+    
     def openMobileBanking(self):
         self.payment.widget.hide()
         self.mobile_banking.widget.show()
