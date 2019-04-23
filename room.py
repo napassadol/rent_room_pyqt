@@ -78,6 +78,7 @@ class CheckStatus(threading.Thread):
 
 class CheckCash(threading.Thread):
     def __init__(self, price, ui_cash, ui_end, home, room_name, door, pin):
+        global count
         threading.Thread.__init__(self)
         self.enable = True
         self.ui_cash = ui_cash
@@ -87,6 +88,7 @@ class CheckCash(threading.Thread):
         self.door = door
         self.pin = pin
         self.price = price
+        count = 0
 
     def run(self):
         global count
