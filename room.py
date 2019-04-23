@@ -15,6 +15,7 @@ count = 0
 def initialPins():
     GPIO.setmode(GPIO.BOARD)
     GPIO.setup(cash_box, GPIO.IN, pull_up_down=GPIO.PUD_UP)
+    GPIO.add_event_detect(cash_box, GPIO.RISING, callback=calculateCash, bouncetime=50)
     with open('./room.json', 'r') as f:
         data = json.load(f)
     for item in data:
@@ -83,7 +84,6 @@ class CheckCash(threading.Thread):
         self.room_name = room_name
         self.door = door
         self.pin = pin
-        GPIO.add_event_detect(cash_box, GPIO.RISING, callback=calculateCash, bouncetime=50)
     def run(self):
         while self.enable:
             time.sleep(2)
