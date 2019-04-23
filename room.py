@@ -95,7 +95,8 @@ class CheckCash(threading.Thread):
         while self.enable:
             if (time.time() - pluse_time > 1) and (count != 0):
                 cash_bank = 0
-                if count < 40 and count > 30:
+                print('Count: ' + count)
+                if count <= 40 and count > 30:
                     print(count)
                     print('100')
                     cash_bank = 100
