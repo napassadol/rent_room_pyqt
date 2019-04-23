@@ -54,7 +54,7 @@ class MyApp(QMainWindow):
             data = json.load(f)
         for item in data:
             if data[item]['sequence'] == 0:
-                self.select_room.pushButton_3.clicked.connect(lambda: self.selectRoom('A'))
+                self.select_room.pushButton_3.clicked.connect(lambda: self.selectRoom(item))
                 self.select_room.pushButton_3.setText(data[item]['buttonText'])
             if data[item]['sequence'] == 1:
                 self.select_room.pushButton_4.clicked.connect(lambda: self.selectRoom(item))
