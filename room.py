@@ -16,7 +16,7 @@ pluse_time = 0
 def initialPins():
     GPIO.setmode(GPIO.BOARD)
     GPIO.setup(cash_box, GPIO.IN, pull_up_down=GPIO.PUD_UP)
-    GPIO.add_event_detect(cash_box, GPIO.RISING, callback=calculateCash, bouncetime=50)
+    GPIO.add_event_detect(cash_box, GPIO.FALLING, callback=calculateCash, bouncetime=50)
     with open('./room.json', 'r') as f:
         data = json.load(f)
     for item in data:
