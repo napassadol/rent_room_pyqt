@@ -89,7 +89,9 @@ class CheckCash(threading.Thread):
         self.pin = pin
     def run(self):
         while self.enable:
+            print('++++++++++++++++++++++++++++++')
             if time.time() - pluse_time > 1:
+                print('---------------------------')
                 count = 0
             time.sleep(0.1)
  
