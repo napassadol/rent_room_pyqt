@@ -66,9 +66,9 @@ class MyApp(QMainWindow):
         #         self.select_room.pushButton_6.clicked.connect(lambda: self.selectRoom(item))
         #         self.select_room.pushButton_6.setText(data[item]['buttonText'])
         self.select_room.pushButton_3.clicked.connect(lambda: self.selectRoom('A'))
-        self.select_room.pushButton_3.clicked.connect(lambda: self.selectRoom('B'))
-        self.select_room.pushButton_3.clicked.connect(lambda: self.selectRoom('C'))
-        self.select_room.pushButton_3.clicked.connect(lambda: self.selectRoom('D'))
+        self.select_room.pushButton_4.clicked.connect(lambda: self.selectRoom('B'))
+        self.select_room.pushButton_5.clicked.connect(lambda: self.selectRoom('C'))
+        self.select_room.pushButton_6.clicked.connect(lambda: self.selectRoom('D'))
     
     def paymentButton(self):
         self.payment.pushButton_8.clicked.connect(self.select_room.widget.show)
