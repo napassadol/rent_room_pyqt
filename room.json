@@ -2,21 +2,21 @@
     "A": {
         "price": 500,
         "door": 2,
-        "pin": 29
+        "pin": 31
     },
     "B": {
         "price": 600,
         "door": 3,
-        "pin": 31
+        "pin": 33
     },
     "C": {
         "price": 700,
         "door": 4,
-        "pin": 33
+        "pin": 35
     },
     "D": {
         "price": 800,
         "door": 5,
-        "pin": 35
+        "pin": 37
     }
 }
